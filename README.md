@@ -2,6 +2,12 @@
 
 *Deutsch: [README.de.md](README.de.md)*
 
+<!-- byline -->
+Fork of [ComicReader](https://github.com/KORComic/comicreader.koplugin) by [KORComic](https://github.com/KORComic), extended by **Akrota and Claude**.
+
+<!-- lang-note -->
+*Works in **English and German**: menus and texts follow KOReader's language. A German description is at the bottom of this page.*
+
 > **Based on [ComicReader](https://github.com/KORComic/comicreader.koplugin) 0.0.7 by [KORComic](https://github.com/KORComic)** (AGPL-3.0).
 > The dual page mode and almost all of the code come from the original. This is an unofficial version that adds spread detection and a few fixes. All credit for the original plugin goes to its authors. If you like it, please star the original too.
 > The idea for the spread detection comes from [pull request #78](https://github.com/KORComic/comicreader.koplugin/pull/78) by hatlessman. It was implemented anew for version 0.0.7.
@@ -24,6 +30,14 @@ This applies to page turning, jumping, bookmarks and the dog-ear. When a page st
 **Setting:** open a comic, then go to: top menu → "Dual Page Mode" → **Detect spreads**. The settings there can also be changed in portrait, before you rotate. It is on by default and can be switched off per comic. When it is off, everything behaves exactly like the original.
 
 **Speed:** For the detection, the size of every page must be known. The first time a comic is opened in dual page mode, the pages up to the current page are measured once, and while you read on, the next ones are measured. The result is saved with the comic, so after that there's no waiting.
+
+## Screenshots
+
+*The screenshots show the English interface; in a German KOReader the texts are German.*
+
+<table>
+<tr><td align="center" valign="top" width="33%"><img src="docs/screenshots/menu.png" width="260" alt="Dual Page menu: detect spreads, first page is cover, right to left, auto enable"><br><sub>Dual Page menu: detect spreads, first page is cover, right to left, auto enable</sub></td><td align="center" valign="top" width="33%"><img src="docs/screenshots/how-it-works.png" width="260" alt="Help text for dual page mode"><br><sub>Help text for dual page mode</sub></td></tr>
+</table>
 
 ## Installation
 
@@ -61,6 +75,49 @@ Kobo Libra Colour with KOReader 2026.07.1 and ZenOS.
 
 Please report problems with this version [here](../../issues), not to the original project. There is no warranty and no guaranteed support.
 
+## More plugins by Akrota and Claude
+
+- [Comic Display](https://github.com/Akrota/koreader-comic-display): Refresh against ghosting, dark borders and a clock for comics
+- [Levels / Tonwerte](https://github.com/Akrota/koreader-comic-levels): Tone curve for comics
+- [Comic Panel Zoom](https://github.com/Akrota/koreader-comic-panel-zoom): Panel-by-panel view (fork of JorgeTheFox's plugin)
+- [CBZ Converter](https://github.com/Akrota/koreader-cbz-converter): Convert comics, PDF and EPUB to CBZ on the device
+- [Folder to series](https://github.com/Akrota/koreader-folder-to-series): Comic folders to series with volume numbers
+- [Drive Library](https://github.com/Akrota/koreader-drive-library): Google Drive as a cloud library
+- [Story Recall](https://github.com/Akrota/koreader-story-recall): Spoiler-free AI recap for books
+- [Guitar Tab Reader](https://github.com/Akrota/koreader-guitar-tab-reader): Guitar tabs and chords for e-ink
+- [Wi-Fi while charging](https://github.com/Akrota/koreader-wifi-while-charging): Keep Wi-Fi on while charging
+- [Zen page browser gesture](https://github.com/Akrota/koreader-zen-page-browser-gesture): Gesture for the ZenOS page browser
+
 ## License
 
 [GNU AGPL-3.0](LICENSE.md), the same as the original.
+
+---
+
+## Deutsch (Kurzbeschreibung)
+
+> **Basiert auf [ComicReader](https://github.com/KORComic/comicreader.koplugin) 0.0.7 von [KORComic](https://github.com/KORComic)** (AGPL-3.0).
+> Der Doppelseiten-Modus und fast der gesamte Code stammen vom Original. Dies ist eine inoffizielle Fassung, die eine Doppelseiten-Erkennung und ein paar Fehlerbehebungen ergänzt. Alle Credits für das Original-Plugin gehören seinen Autoren. Wenn es dir gefällt, gib bitte auch dem Original einen Stern.
+> Die Idee für die Doppelseiten-Erkennung stammt aus [Pull Request #78](https://github.com/KORComic/comicreader.koplugin/pull/78) von hatlessman. Sie wurde für Version 0.0.7 neu umgesetzt.
+
+ComicReader zeigt im Querformat zwei Comic-Seiten nebeneinander. Das Original paart dabei immer 1+2, 3+4 usw., auch wenn eine Seite schon selbst eine Doppelseite ist. Dann landen zwei Querformat-Seiten nebeneinander.
+
+
+### Neu: Doppelseiten erkennen
+
+Seiten im Querformat (breiter als hoch) gelten als Doppelseite und werden **allein** angezeigt. Die Seiten davor und danach werden passend neu gepaart, damit nichts verrutscht:
+
+- Hochformat + Hochformat = Paar
+- Querformat = allein
+- Hochformat direkt vor einer Querformat-Seite = allein
+- Cover (falls „First page is cover“ an ist) = allein
+
+Beispiel mit Doppelseiten auf Seite 3 und 6: Ansichten 1+2 · 3 · 4+5 · 6 · 7+8.
+
+Das gilt für Blättern, Springen, Lesezeichen und Eselsohr. Steht eine Seite allein, fragt das Lesezeichen nicht mehr „linke oder rechte Seite“.
+
+**Einstellung:** Einen Comic öffnen, dann: oberes Menü → „Dual Page Mode“ → **Doppelseiten erkennen**. Die Einstellungen dort lassen sich auch im Hochformat ändern, schon vor dem Drehen. Standardmäßig an und pro Comic abschaltbar. Ausgeschaltet verhält sich alles genau wie im Original.
+
+**Geschwindigkeit:** Für die Erkennung muss die Größe jeder Seite bekannt sein. Beim ersten Öffnen eines Comics im Doppelseiten-Modus werden die Seiten bis zur aktuellen Seite einmal vermessen, beim Weiterlesen jeweils die nächsten. Das Ergebnis wird im Comic gespeichert, danach gibt es keine Wartezeit mehr.
+
+Die ausführliche deutsche Anleitung steht in der [README.de.md](README.de.md).
