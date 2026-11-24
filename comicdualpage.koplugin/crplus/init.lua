@@ -1,0 +1,81 @@
+require("crplus/readerpaging")
+require("crplus/readerview")
+require("crplus/readerbookmark")
+require("crplus/readerdogear")
+require("crplus/readerhighlight")
+require("crplus/koptoptions")
+require("crplus/readerzooming")
+require("crplus/readerthumbnail")
+require("crplus/readerhinting")
+require("crplus/reader_menu_order")
+require("crplus/one_time_migration")
+
+local Dispatcher = require("dispatcher")
+local WidgetContainer = require("ui/widget/container/widgetcontainer")
+local _ = require("gettext")
+
+local ComicReader = WidgetContainer:extend({
+    name = "ComicReaderPlus",
+    is_doc_only = true,
+})
+
+-- luacheck: ignore self
+function ComicReader:onDispatcherRegisterActions(self)
+    Dispatcher:registerAction("paging_set_auto_enable_dual_page_mode", {
+        category = "string",
+        event = "SetAutoEnableDualPageMode",
+        title = _("Set auto enable dual page mode"),
+        section = "paging",
+        paging = true,
+        args = { true, false },
+        toggle = { _("true"), _("false") },
+    })
+    Dispatcher:registerAction("paging_set_auto_enable_dual_page_mode", {
+        category = "string",
+        event = "SetAutoEnableDualPageMode",
+        title = _("Set auto enable dual page mode"),
+        section = "paging",
+        paging = true,
+        args = { true, false },
+        toggle = { _("true"), _("false") },
+    })
+    Dispatcher:registerAction("paging_toggle_dual_page_mode", {
+        category = "none",
+        event = "ToggleDualPageMode",
+        title = _("Toggle dual page mode"),
+        paging = true,
+        section = "paging",
+    })
+    Dispatcher:registerAction("paging_set_page_mode", {
+        category = "string",
+        event = "SetPageMode",
+        title = _("Set page mode"),
+        args = { 1, 2 },
+        toggle = { _("single"), _("dual") },
+        paging = true,
+        section = "paging",
+    })
+    Dispatcher:registerAction("paging_set_dual_page_mode_first_page_is_cover", {
+        category = "string",
+        event = "SetDualPageModeFirstPageIsCover",
+        title = _("Set dual page mode first page is cover"),
+        section = "paging",
+        paging = true,
+        args = { true, false },
+        toggle = { _("true"), _("false") },
+    })
+    Dispatcher:registerAction("paging_set_dual_page_mode_rtl", {
+        category = "string",
+        event = "SetDualPageModeRTL",
+        title = _("Set dual page mode RTL"),
+        section = "paging",
+        paging = true,
+        args = { true, false },
+        toggle = { _("true"), _("false") },
+        separator = true,
+    })
+end
+
+ComicReader:onDispatcherRegisterActions()
+
+return ComicReader
